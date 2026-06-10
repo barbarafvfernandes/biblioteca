@@ -2,27 +2,27 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import type { Book } from '../types';
 
-const API_URL = 'https://crudcrud.com/api/eab18c138d53453ba5bc3b2f08e827f1/livros';
+const API_URL = 'https://crudcrud.com/api/68c5b3f6231c4374b0d18e5f85245acf/livros';
 
 export const useBooks = () => {
   const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchBooks = async () => {
-    try {
-      setLoading(true);
-      const response = await axios.get<Book[]>(API_URL);
-      setBooks(response.data);
-    } catch (err) {
-      setError('Erro ao carregar os livros.');
-      console.error(err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const fetchBooks = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get<Book[]>(API_URL);
+        setBooks(response.data);
+      } catch (err) {
+        setError('Erro ao carregar os livros.');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchBooks();
   }, []);
 

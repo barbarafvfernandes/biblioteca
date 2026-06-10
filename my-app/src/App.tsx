@@ -1,4 +1,21 @@
-import BookForm from './components/BookForm'; 
+import React from 'react';
+import BookList from './components/BookList';
+
+const App: React.FC = () => {
+  return (
+    <div style={{ maxWidth: '600px', margin: '0 auto', fontFamily: 'Arial, sans-serif' }}>
+      <BookList />
+    </div>
+  );
+};
+
+export default App;
+
+
+
+
+
+/*import BookForm from './components/BookForm'; 
 import BookItem from './components/BookItem';
 import { useBooks } from './hooks/useBooks';
 
@@ -28,4 +45,6 @@ const { books, loading, error, addBook, deleteBook } = useBooks();
   );
 };
 
-export default App;
+export default App;*/
+
+
